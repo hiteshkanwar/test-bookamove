@@ -152,3 +152,10 @@ body {
     }
 
 }
+
+@media screen and (max-width: 640px) {
+    #main_table {
+        width: 200px;
+        overflow-y: scroll;
+    }
+}

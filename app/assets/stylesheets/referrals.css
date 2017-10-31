@@ -76,11 +76,14 @@
 }
 
 .btn-red {
-    color: #fff;
-    background-color: #e00302;
-    border-color: #ca0302;
+  color: #fff !important;
+  background-color: #e00302;
+  border-color: #ca0302;
+  padding-left: 10px !important;
 }
-
+.btn-red{
+  background-color: #e00302 !important;
+}
 .form-control2 {
     height: 28px;
     font-size: 12px;
@@ -140,4 +143,8 @@
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
+}
+#main-nav .navigation > .nav > li > a.btn-new-move:hover{
+  background-color: #e00302 !important;
+  color: #fff;
 }

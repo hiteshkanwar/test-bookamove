@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   helper_method :current_user
   helper_method :validate_permissions
+  before_action :set_role_group
   include ApplicationHelper
   require 'aws-sdk'
 
@@ -72,7 +73,6 @@ class ApplicationController < ActionController::Base
 
       charge_permissions()
     end
-
   end
 
   def check_domain_user(user_id)
@@ -197,6 +197,16 @@ class ApplicationController < ActionController::Base
 
   def utc_time_zone(&block)
     Time.use_zone("UTC", &block)
+  end
+
+  def set_role_group
+    @role_group = if (1..10).cover? @role_level
+      "Customers"
+    elsif (11..49).cover? @role_level
+      "Movers"
+    elsif (50..90).cover? @role_level
+      "Administration"
+    end
   end
 
 end

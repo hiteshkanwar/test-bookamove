@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   include MessagesHelper
   before_filter :current_user
+  before_action :set_role_group
 
   def index
     @page_title = ("<i class='icon-dashboard blank3 blue-text'></i>" + "Dashboard").html_safe
